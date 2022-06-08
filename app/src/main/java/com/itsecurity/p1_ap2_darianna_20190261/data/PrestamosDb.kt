@@ -6,7 +6,7 @@ import com.itsecurity.p1_ap2_darianna_20190261.model.Prestamos
 
 @Database(
     entities = [Prestamos::class],
-    version = 1
+    version = 2
 )
 abstract class PrestamosDb: RoomDatabase() {
     abstract  val prestamosDao: PrestamosDao
