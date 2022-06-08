@@ -26,7 +26,7 @@ fun ConsultaParcial1Ap2Screen(
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text(text = "Consulta del primer parcial")}
+                title = { Text(text = "Consulta de Lista Prestamos")}
             )
         },
         floatingActionButton = {

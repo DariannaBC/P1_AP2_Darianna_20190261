@@ -10,5 +10,5 @@ import kotlinx.parcelize.Parcelize
 data class Parcial1Ap2(
     @PrimaryKey(autoGenerate = true)
     val objetoId: Int,
-
+    
 ): Parcelable

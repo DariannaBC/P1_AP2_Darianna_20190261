@@ -20,7 +20,7 @@ fun RegistroParcial1Ap2Screen(
     //val ocup = listOf("Maestro", "Ingeniero", "Doctor", "Carpinterio")
 
     Scaffold(
-        topBar = { TopAppBar(title = { Text(text = "Registro del primer parcial") }) }
+        topBar = { TopAppBar(title = { Text(text = "Registro del prestamos") }) }
     ){
 
 
