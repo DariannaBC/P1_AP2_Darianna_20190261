@@ -29,7 +29,7 @@ private val LightColorPalette = lightColors(
 )
 
 
-//TODO Tema del registro principal
+
 @Composable
 fun RegistroPrestamosComposeTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
