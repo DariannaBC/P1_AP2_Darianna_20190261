@@ -5,6 +5,7 @@ import com.itsecurity.p1_ap2_darianna_20190261.model.Prestamos
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
+
 class PrestamosRepository @Inject constructor(
     val prestamosDao: PrestamosDao
 ) {
