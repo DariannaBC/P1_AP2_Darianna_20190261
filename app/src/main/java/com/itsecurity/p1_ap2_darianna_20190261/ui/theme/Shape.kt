@@ -1,4 +1,4 @@
-package com.example.p1_ap2_junior_20190009.ui.theme
+package com.itsecurity.p1_ap2_darianna_20190261.ui.theme
 
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Shapes

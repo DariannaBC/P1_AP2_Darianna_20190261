@@ -13,7 +13,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
-import com.itsecurity.p1_ap2_darianna_20190261.ui.componentes.Prestamo.PrestamoViewModel
+
 
 
 @Composable
