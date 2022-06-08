@@ -18,7 +18,7 @@ import androidx.navigation.NavHostController
 import com.itsecurity.p1_ap2_darianna_20190261.RowPrestamos
 
 
-//TODO Realizar ventana de la consulta de la clase correspondiente
+
 
 @Composable
 fun ConsultaPrestamosScreen(
