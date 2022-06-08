@@ -21,7 +21,7 @@ class Parcial1Ap2ViewModel @Inject constructor(
     var Parcial1Ap2 = Parcial1Ap2Repository.GetLista()
 
     var clienteID by mutableStateOf(0)
-    var nombre by mutableStateOf("")
+
      var deudor by mutableStateOf("")
      var concepto by mutableStateOf("")
 
@@ -32,9 +32,10 @@ class Parcial1Ap2ViewModel @Inject constructor(
             parcial1Ap2Repository.Insertar(
                 Parcial1Ap2(
                     objetoId = clienteID,
-                    nombre = nombre,
+
                     deudor = deudor,
 
+                    concepto = concepto,
                     monto = monto.toString().toDouble()
                 )
             )

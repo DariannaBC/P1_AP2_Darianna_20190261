@@ -31,7 +31,7 @@ fun ConsultaParcial1Ap2Screen(
         },
         floatingActionButton = {
             FloatingActionButton(onClick = {
-                navHostController.navigate("RegistroParcial1Ap2")
+                navHostController.navigate("RegistroPrestamos")
             }) {
                 Icon(imageVector = Icons.Default.Add, contentDescription = null)
             }
@@ -42,13 +42,13 @@ fun ConsultaParcial1Ap2Screen(
         Column(modifier = Modifier
             .padding(it)
             .padding(8.dp)) {
-            //val listaclientes = clienteViewModel.clientes.collectAsState(initial = emptyList())
+            val listaprestamos = Parcial1Ap2ViewModel.Parcial1Ap2.collectAsState(initial = emptyList())
 
-          /*  LazyColumn(modifier = Modifier.fillMaxWidth()){
+           LazyColumn(modifier = Modifier.fillMaxWidth()){
                 items(listaclientes.value){
-                        nombre -> RowPersona(nombre = nombre.nombre)
+                        deudor -> RowPrestamos(nombre = deudor.deudor)
                 }
-            }*/
+            }
         }
     }
 
