@@ -11,7 +11,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-//TODO Implementar view model de la clase correspondiente
+
 
 @HiltViewModel
 class PrestamoViewModel @Inject constructor(
