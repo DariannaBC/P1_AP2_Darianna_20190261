@@ -18,23 +18,24 @@ class Parcial1Ap2ViewModel @Inject constructor(
     val parcial1Ap2Repository: Parcial1Ap2Repository
 ): ViewModel() {
 
-   // var clientes = clienteRepository.GetLista()
+    var Parcial1Ap2 = Parcial1Ap2Repository.GetLista()
 
     var clienteID by mutableStateOf(0)
-/*    var nombre by mutableStateOf("")
-    var email by mutableStateOf("")
-    var ocupacionId by mutableStateOf(0)
-    var balance by mutableStateOf("")*/
+    var nombre by mutableStateOf("")
+     var deudor by mutableStateOf("")
+     var concepto by mutableStateOf("")
+
+     var monto by mutableStateOf("")
 
     fun Guardar(){
         viewModelScope.launch {
             parcial1Ap2Repository.Insertar(
                 Parcial1Ap2(
                     objetoId = clienteID,
-                    /*nombre = nombre,
-                    email = email,
-                    ocupacionId = ocupacionId,
-                    balance = balance.toString().toDouble()*/
+                    nombre = nombre,
+                    deudor = deudor,
+
+                    monto = monto.toString().toDouble()
                 )
             )
         }
