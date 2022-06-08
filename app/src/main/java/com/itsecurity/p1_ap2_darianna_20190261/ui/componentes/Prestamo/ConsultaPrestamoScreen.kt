@@ -1,24 +1,29 @@
-package com.itsecurity.p1_ap2_darianna_20190261.ui.theme.Parcial1Ap2
+package com.itsecurity.p1_ap2_darianna_20190261.ui.componentes.Prestamo
 
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
-import com.itsecurity.p1_ap2_darianna_20190261.ui.theme.Parcial1Ap2.Parcial1Ap2ViewModel
+
+import com.itsecurity.p1_ap2_darianna_20190261.RowPrestamos
 
 
 //TODO Realizar ventana de la consulta de la clase correspondiente
 
 @Composable
-fun ConsultaParcial1Ap2Screen(
+fun ConsultaPrestamosScreen(
     navHostController: NavHostController,
-    parcial1Ap2ViewModel: Parcial1Ap2ViewModel = hiltViewModel()
+    prestamoViewModel: PrestamoViewModel = hiltViewModel()
 ){
 
     val ScaffoldState = rememberScaffoldState()
@@ -26,7 +31,7 @@ fun ConsultaParcial1Ap2Screen(
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text(text = "Consulta de Lista Prestamos")}
+                title = { Text(text = "Consulta de Prestamos")}
             )
         },
         floatingActionButton = {
@@ -42,10 +47,10 @@ fun ConsultaParcial1Ap2Screen(
         Column(modifier = Modifier
             .padding(it)
             .padding(8.dp)) {
-            val listaprestamos = Parcial1Ap2ViewModel.Parcial1Ap2.collectAsState(initial = emptyList())
+            val listaprestamos = prestamoViewModel.prestamos.collectAsState(initial = emptyList())
 
-           LazyColumn(modifier = Modifier.fillMaxWidth()){
-                items(listaclientes.value){
+            LazyColumn(modifier = Modifier.fillMaxWidth()){
+                items(listaprestamos.value){
                         deudor -> RowPrestamos(nombre = deudor.deudor)
                 }
             }
@@ -53,4 +58,3 @@ fun ConsultaParcial1Ap2Screen(
     }
 
 }
-

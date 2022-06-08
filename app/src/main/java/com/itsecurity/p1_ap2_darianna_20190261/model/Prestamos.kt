@@ -5,12 +5,12 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import kotlinx.parcelize.Parcelize
 
-@Entity(tableName = "Parcial1")
+@Entity(tableName = "Prestamos")
 @Parcelize
-data class Parcial1Ap2(
+data class Prestamos(
     @PrimaryKey(autoGenerate = true)
-    val objetoId: Int,
-    val deudor:String,
-    val concepto:String,
-    val monto:Double
+    val prestamoId: Int,
+    val deudor: String,
+    val concepto: String,
+    val monto: Double
 ): Parcelable

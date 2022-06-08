@@ -1,4 +1,4 @@
-package com.itsecurity.p1_ap2_darianna_20190261.ui.theme.Parcial1Ap2
+package com.itsecurity.p1_ap2_darianna_20190261.ui.componentes.Prestamo
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -6,35 +6,35 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Check
+import androidx.compose.material.icons.filled.Email
 import androidx.compose.material.icons.filled.Person
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
-import com.itsecurity.p1_ap2_darianna_20190261.ui.theme.Parcial1Ap2.Parcial1Ap2ViewModel
+import com.itsecurity.p1_ap2_darianna_20190261.ui.componentes.Prestamo.PrestamoViewModel
 
-
+//TODO Realizar ventana del registo de la clase correspondiente
 @Composable
-fun RegistroParcial1Ap2Screen(
+fun RegistroPrestamoScreen(
     navHostController: NavHostController,
-    parcial1Ap2ViewModel: Parcial1Ap2ViewModel = hiltViewModel()
+    prestamoViewModel: PrestamoViewModel = hiltViewModel()
     ) {
 
 
-
     Scaffold(
-        topBar = { TopAppBar(title = { Text(text = "Registro del prestamos") }) }
+        topBar = { TopAppBar(title = { Text(text = "Registro de prestamos") }) }
     ){
 
 
     Column(modifier = Modifier.padding(8.dp)) {
         OutlinedTextField(
-            value = Parcial1Ap2ViewModel.deudor,
-            onValueChange = {Parcial1Ap2ViewModel.deudor = it},
+            value = prestamoViewModel.deudor,
+            onValueChange = {prestamoViewModel.deudor = it},
             modifier = Modifier.fillMaxWidth(),
             label = {
-                Text(text = "Nombre de deudor")
+                Text(text = "Nombre del Deudor")
             },
             leadingIcon = {
                 Icon(
@@ -43,30 +43,27 @@ fun RegistroParcial1Ap2Screen(
             }
         )
 
-
-
         OutlinedTextField(
-            value = Parcial1Ap2ViewModel.concepto,
-            onValueChange = {Parcial1Ap2ViewModel.concepto = it},
+            value = prestamoViewModel.concepto,
+            onValueChange = {prestamoViewModel.concepto = it},
             modifier = Modifier.fillMaxWidth(),
             label = {
-                Text(text = "deudor")
+                Text(text = "Concepto")
             },
             leadingIcon = {
                 Icon(
-                    imageVector = Icons.Default.concepto,
+                    imageVector = Icons.Default.Email,
                     contentDescription = null)
             }
         )
 
-
         OutlinedTextField(
 
-            value = Parcial1Ap2ViewModel.monto,
-            onValueChange = {Parcial1Ap2ViewModel.monto = it},
+            value = prestamoViewModel.monto,
+            onValueChange = {prestamoViewModel.monto = it},
             modifier = Modifier.fillMaxWidth(),
             label = {
-                Text(text = "monto")
+                Text(text = "Monto")
             },
             leadingIcon = {
                 Icon(
@@ -77,7 +74,7 @@ fun RegistroParcial1Ap2Screen(
 
         OutlinedButton(
             onClick = {
-                parcial1Ap2ViewModel.Guardar()
+                prestamoViewModel.Guardar()
                 navHostController.navigateUp()
             }
         ) {

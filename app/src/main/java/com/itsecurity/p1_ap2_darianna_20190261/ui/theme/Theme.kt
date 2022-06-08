@@ -5,6 +5,7 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.material.darkColors
 import androidx.compose.material.lightColors
 import androidx.compose.runtime.Composable
+import com.example.p1_ap2_junior_20190009.ui.theme.*
 
 private val DarkColorPalette = darkColors(
     primary = Purple200,
@@ -27,9 +28,10 @@ private val LightColorPalette = lightColors(
     */
 )
 
+
 //TODO Tema del registro principal
 @Composable
-fun RegistroParcial1Ap2ComposeTheme(
+fun RegistroPrestamosComposeTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
     content: @Composable () -> Unit
 ) {
