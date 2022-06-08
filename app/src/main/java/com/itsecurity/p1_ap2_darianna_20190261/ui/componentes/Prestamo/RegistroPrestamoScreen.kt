@@ -15,7 +15,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
 import com.itsecurity.p1_ap2_darianna_20190261.ui.componentes.Prestamo.PrestamoViewModel
 
-//TODO Realizar ventana del registo de la clase correspondiente
+
 @Composable
 fun RegistroPrestamoScreen(
     navHostController: NavHostController,
