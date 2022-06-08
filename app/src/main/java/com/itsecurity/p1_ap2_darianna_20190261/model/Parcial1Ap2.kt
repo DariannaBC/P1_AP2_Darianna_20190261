@@ -1,0 +1,14 @@
+package com.itsecurity.p1_ap2_darianna_20190261.model
+
+import android.os.Parcelable
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+import kotlinx.parcelize.Parcelize
+
+@Entity(tableName = "Parcial1")
+@Parcelize
+data class Parcial1Ap2(
+    @PrimaryKey(autoGenerate = true)
+    val objetoId: Int,
+
+): Parcelable
