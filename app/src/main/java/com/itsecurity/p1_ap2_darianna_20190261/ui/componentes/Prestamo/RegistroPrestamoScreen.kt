@@ -20,7 +20,7 @@ import androidx.navigation.NavHostController
 fun RegistroPrestamoScreen(
     navHostController: NavHostController,
     prestamoViewModel: PrestamoViewModel = hiltViewModel()
-    ) {
+) {
 
 
     Scaffold(
@@ -28,58 +28,73 @@ fun RegistroPrestamoScreen(
     ){
 
 
-    Column(modifier = Modifier.padding(8.dp)) {
-        OutlinedTextField(
-            value = prestamoViewModel.deudor,
-            onValueChange = {prestamoViewModel.deudor = it},
-            modifier = Modifier.fillMaxWidth(),
-            label = {
-                Text(text = "Nombre del Deudor")
-            },
-            leadingIcon = {
-                Icon(
-                    imageVector = Icons.Default.Person,
-                    contentDescription = null)
-            }
-        )
+        Column(modifier = Modifier.padding(8.dp)) {
+            OutlinedTextField(
+                value = prestamoViewModel.deudor,
+                onValueChange = {prestamoViewModel.deudor = it},
+                modifier = Modifier.fillMaxWidth(),
+                label = {
+                    Text(text = "Nombre del Deudor")
+                },
+                leadingIcon = {
+                    Icon(
+                        imageVector = Icons.Default.Person,
+                        contentDescription = null)
+                }
+            )
 
-        OutlinedTextField(
-            value = prestamoViewModel.concepto,
-            onValueChange = {prestamoViewModel.concepto = it},
-            modifier = Modifier.fillMaxWidth(),
-            label = {
-                Text(text = "Concepto")
-            },
-            leadingIcon = {
-                Icon(
-                    imageVector = Icons.Default.Email,
-                    contentDescription = null)
-            }
-        )
+            OutlinedTextField(
+                value = prestamoViewModel.concepto,
+                onValueChange = {prestamoViewModel.concepto = it},
+                modifier = Modifier.fillMaxWidth(),
+                label = {
+                    Text(text = "Concepto")
+                },
+                leadingIcon = {
+                    Icon(
+                        imageVector = Icons.Default.Email,
+                        contentDescription = null)
+                }
+            )
 
-        OutlinedTextField(
+            OutlinedTextField(
 
-            value = prestamoViewModel.monto,
-            onValueChange = {prestamoViewModel.monto = it},
-            modifier = Modifier.fillMaxWidth(),
-            label = {
-                Text(text = "Monto")
-            },
-            leadingIcon = {
-                Icon(
-                    imageVector = Icons.Default.Check,
-                    contentDescription = null)
-            }
-        )
+                value = prestamoViewModel.monto,
+                onValueChange = {prestamoViewModel.monto = it},
+                modifier = Modifier.fillMaxWidth(),
+                label = {
+                    Text(text = "Monto")
+                },
+                leadingIcon = {
+                    Icon(
+                        imageVector = Icons.Default.Check,
+                        contentDescription = null)
+                }
+            )
 
-        OutlinedButton(
-            onClick = {
-                prestamoViewModel.Guardar()
-                navHostController.navigateUp()
+            OutlinedButton(
+                onClick = {
+                    if (validateNumber(prestamoViewModel.monto)){
+                        prestamoViewModel.Guardar()
+                        navHostController.navigateUp()
+                    }else{
+
+                    }
+
+                }
+            ) {
+                Text(text = "Guardar")
             }
-        ) {
-            Text(text = "Guardar")
         }
     }
+}
+
+fun validateNumber(number:String): Boolean {
+    val validation = number.toDouble()
+
+    if (validation >= 0){
+        return true
+    }else{
+        return false
     }
 }

@@ -17,7 +17,6 @@ import com.itsecurity.p1_ap2_darianna_20190261.ui.theme.RegistroPrestamosCompose
 
 import dagger.hilt.android.AndroidEntryPoint
 
-
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,7 +35,7 @@ class MainActivity : ComponentActivity() {
     }
 }
 
-
+//TODO Implementar navegacion correspondiente
 @Composable
 fun MyApp() {
     val navHostController = rememberNavController()
@@ -52,10 +51,12 @@ fun MyApp() {
 }
 
 @Composable
-fun RowPrestamos(nombre:String){
-    Row() {
-        Text(text = "El nombre del deudor es: $nombre")
+fun RowPrestamos(nombre:String, monto:Double, concepto:String){
+    Column() {
+        Text(text = " $nombre")
+        Text(text = " $concepto")
     }
+    Text(text = "$$monto")
 }
 
 @Preview(showBackground = true, showSystemUi = true)

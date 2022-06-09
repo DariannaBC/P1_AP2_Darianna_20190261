@@ -4,6 +4,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
@@ -49,9 +50,9 @@ fun ConsultaPrestamosScreen(
             .padding(8.dp)) {
             val listaprestamos = prestamoViewModel.prestamos.collectAsState(initial = emptyList())
 
-            LazyColumn(modifier = Modifier.fillMaxWidth()){
+            LazyRow(modifier = Modifier.fillMaxWidth()){
                 items(listaprestamos.value){
-                        deudor -> RowPrestamos(nombre = deudor.deudor)
+                        deudor -> RowPrestamos(nombre = deudor.deudor, monto = deudor.monto, concepto = deudor.concepto)
                 }
             }
         }
