@@ -1,40 +1,35 @@
 package com.itsecurity.p1_ap2_darianna_20190261.ui.componentes.Prestamo
 
+import android.widget.Toast
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Check
-import androidx.compose.material.icons.filled.Email
-import androidx.compose.material.icons.filled.Person
+import androidx.compose.material.icons.filled.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
 
 
-
 @Composable
-fun RegistroPrestamoScreen(
-    navHostController: NavHostController,
-    prestamoViewModel: PrestamoViewModel = hiltViewModel()
-) {
-
-
+fun RegistroPrestamoScreen(navHostController: NavHostController, viewModel: PrestamoViewModel = hiltViewModel()
+){
+    val context = LocalContext.current
     Scaffold(
-        topBar = { TopAppBar(title = { Text(text = "Registro de prestamos") }) }
-    ){
-
-
+        topBar = { TopAppBar(title = { Text(text = "Registro Prestamos") }) }
+    ) {
         Column(modifier = Modifier.padding(8.dp)) {
+
             OutlinedTextField(
-                value = prestamoViewModel.deudor,
-                onValueChange = {prestamoViewModel.deudor = it},
+                value = viewModel.deudor,
+                onValueChange = {viewModel.deudor = it},
                 modifier = Modifier.fillMaxWidth(),
                 label = {
-                    Text(text = "Nombre del Deudor")
+                    Text(text = "Deudor")
                 },
                 leadingIcon = {
                     Icon(
@@ -42,57 +37,55 @@ fun RegistroPrestamoScreen(
                         contentDescription = null)
                 }
             )
-
             OutlinedTextField(
-                value = prestamoViewModel.concepto,
-                onValueChange = {prestamoViewModel.concepto = it},
+                value = viewModel.concepto,
+                onValueChange = {viewModel.concepto = it},
                 modifier = Modifier.fillMaxWidth(),
                 label = {
                     Text(text = "Concepto")
                 },
                 leadingIcon = {
                     Icon(
-                        imageVector = Icons.Default.Email,
+                        imageVector = Icons.Default.Info,
                         contentDescription = null)
                 }
             )
 
             OutlinedTextField(
-
-                value = prestamoViewModel.monto,
-                onValueChange = {prestamoViewModel.monto = it},
-                modifier = Modifier.fillMaxWidth(),
-                label = {
-                    Text(text = "Monto")
-                },
+                label = { Text("Monto:") },
                 leadingIcon = {
                     Icon(
-                        imageVector = Icons.Default.Check,
-                        contentDescription = null)
-                }
+                        imageVector = Icons.Default.ShoppingCart,
+                        contentDescription = null) },
+                value = viewModel.monto,
+                onValueChange = { viewModel.monto = it },
+                modifier = Modifier.fillMaxWidth()
             )
 
-            OutlinedButton(
+            Button(
                 onClick = {
-                    if (validateNumber(prestamoViewModel.monto)){
-                        prestamoViewModel.Guardar()
+                    if (validate(viewModel.monto)){
+                        viewModel.Guardar()
                         navHostController.navigateUp()
                     }else{
-
+                        Toast.makeText(context, "Transaccion Fallida", Toast.LENGTH_SHORT).show()
                     }
-
-                }
+                },
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(vertical = 20.dp)
             ) {
-                Text(text = "Guardar")
+                Text("Guardar ")
+
             }
         }
     }
 }
 
-fun validateNumber(number:String): Boolean {
+fun validate(number:String): Boolean {
     val validation = number.toDouble()
 
-    if (validation >= 0){
+    if (validation >= 1){
         return true
     }else{
         return false

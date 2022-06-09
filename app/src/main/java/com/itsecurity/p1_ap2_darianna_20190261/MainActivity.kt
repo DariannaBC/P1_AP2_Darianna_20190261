@@ -12,6 +12,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.itsecurity.p1_ap2_darianna_20190261.ui.componentes.Prestamo.ConsultaPrestamosScreen
+
 import com.itsecurity.p1_ap2_darianna_20190261.ui.componentes.Prestamo.RegistroPrestamoScreen
 import com.itsecurity.p1_ap2_darianna_20190261.ui.theme.RegistroPrestamosComposeTheme
 
@@ -42,7 +43,7 @@ fun MyApp() {
 
     NavHost(navController = navHostController, startDestination = "ConsultaPrestamos"){
         composable("ConsultaPrestamos"){
-            ConsultaPrestamosScreen(navHostController = navHostController)
+           ConsultaPrestamosScreen(navHostController = navHostController)
         }
         composable("RegistroPrestamos"){
             RegistroPrestamoScreen(navHostController = navHostController)
@@ -52,11 +53,15 @@ fun MyApp() {
 
 @Composable
 fun RowPrestamos(nombre:String, monto:Double, concepto:String){
-    Column() {
-        Text(text = " $nombre")
-        Text(text = " $concepto")
+    Row() {
+        Text(
+            text = "${nombre}\n" +
+
+                    "${concepto}\t\t\n"
+        )
+
+        Text(text = "$${monto}\n")
     }
-    Text(text = "$$monto")
 }
 
 @Preview(showBackground = true, showSystemUi = true)
