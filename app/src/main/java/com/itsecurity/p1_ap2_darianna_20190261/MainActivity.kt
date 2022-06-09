@@ -35,7 +35,7 @@ class MainActivity : ComponentActivity() {
     }
 }
 
-//TODO Implementar navegacion correspondiente
+
 @Composable
 fun MyApp() {
     val navHostController = rememberNavController()
