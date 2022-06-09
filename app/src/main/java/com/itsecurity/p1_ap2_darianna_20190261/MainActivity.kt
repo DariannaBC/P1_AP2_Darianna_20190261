@@ -54,7 +54,7 @@ fun MyApp() {
 @Composable
 fun RowPrestamos(nombre:String){
     Row() {
-        Text(text = "El nombre es: $nombre")
+        Text(text = "El nombre del deudor es: $nombre")
     }
 }
 
