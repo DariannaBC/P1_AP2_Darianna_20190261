@@ -51,18 +51,7 @@ fun MyApp() {
     }
 }
 
-@Composable
-fun RowPrestamos(nombre:String, monto:Double, concepto:String){
-    Row() {
-        Text(
-            text = "${nombre}\n" +
 
-                    "${concepto}\t\t\n"
-        )
-
-        Text(text = "$${monto}\n")
-    }
-}
 
 @Preview(showBackground = true, showSystemUi = true)
 @Composable
