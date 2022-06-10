@@ -68,7 +68,7 @@ fun RegistroPrestamoScreen(navHostController: NavHostController, viewModel: Pres
                         viewModel.Guardar()
                         navHostController.navigateUp()
                     }else{
-                        Toast.makeText(context, "Transaccion Fallida", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(context, "Transaccion Fallida, Ingrese un monto mas alto", Toast.LENGTH_SHORT).show()
                     }
                 },
                 modifier = Modifier
